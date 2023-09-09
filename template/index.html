@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Weather</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+    #logo{
+      left: 470px;
+      text-shadow: 2px 2px 4px #333;
+    }
+    .main {
+
+
+      align-items: center;
+      background-color: rgb(35, 34, 34);
+      color: black;
+
+      width: 80%;
+      margin: 20px auto;
+
+
+    }
+
+    .carousel-inner img {
+
+      height: 75vh;
+      width: 100%;
+    }
+
+    .carousel-caption {
+      top: 20%;
+      text-shadow: 5px 5px 6px #333;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="row" style="background: #949fcb; color: white;">
+    <div align="center">
+      <h1 class="col-md-3 text-center" id="logo">Weather Detector</h1>
+    </div>
+  </nav>
+
+  <div class="main">
+
+    <div class="carousel-inner">
+      <img
+        src="https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg?cs=srgb&dl=pexels-pixabay-209831.jpg&fm=jpg"
+        class="d-block w-100 " alt="motive ">
+      <div class="carousel-caption">
+        <center class="row">
+          <form action="" method="post" class="col-md-6 col-md-offset-3">
+            {% csrf_token %}
+            <div class="input-group">
+              <input type="text" class="form-control" name="city" placeholder="Search">
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                  <i class="glyphicon glyphicon-search"></i>
+                </button>
+              </div>
+              <form>
+        </center>
+        <div class="row">
+          {% if city %}
+          <div class="col-md-6 col-md-offset-3">
+            <h1>{{city}}</h1>
+            <h2>Country Code: {{data.country_code}}</h2>
+            <h5>Coordinate: {{data.coordinate}}</h5>
+            <h5>Temperature: {{data.temp}}</h5>
+            <h5>Precipitation: {{data.precep}} 
+            </h5>
+            <h5>Pressure: {{data.pressure}} </h5>
+            <h5>Humidity: {{data.humidity}}</h5>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
